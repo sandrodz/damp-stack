@@ -1,0 +1,6 @@
+/persist/*
+!/persist/.gitkeep
+/nginx/sites/*
+!/nginx/sites/.gitkeep
+/www/*
+!/www/.gitkeep
