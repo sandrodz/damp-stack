@@ -1,0 +1,20 @@
+{
+  "name": "www-cli",
+  "version": "1.0.0",
+  "description": "A command-line tool for creating stack-lemp projects.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandro Dzneladze",
+  "license": "MIT",
+  "bin": {
+    "www": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.3.1",
+    "commander": "^10.0.1",
+    "dotenv": "^16.0.3"
+  }
+}
