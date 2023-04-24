@@ -4,3 +4,4 @@
 !/nginx/sites/.gitkeep
 /www/*
 !/www/.gitkeep
+.env
