@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import { exec } from 'child_process';
 import dockerCommands from '../docker-commands.js';
 import { wwwDir, virtualHostsDir } from '../paths.js';
+import { unlinkSync } from 'fs';
 
 /*
  * Run remove project.
@@ -11,11 +12,12 @@ import { wwwDir, virtualHostsDir } from '../paths.js';
 program.command('remove')
   .description('Delete project directory, nginx configuration files, and database')
   .argument('<string>', 'Project name')
-  .action((str, options) => {
+  .option('--tld <string>', 'Top level domain', '.test')
+  .action((name, options) => {
     console.log(chalk.red('Deleting project...'))
 
     // Paths.
-    const project = options.project+options.tld;
+    const project = name+options.tld;
     const projectDir = wwwDir+project;
     const virtualHostFile = virtualHostsDir+project+'.conf';
 
