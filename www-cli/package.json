@@ -1,7 +1,7 @@
 {
   "name": "www-cli",
   "version": "1.0.0",
-  "description": "A command-line tool for creating stack-lemp projects.",
+  "description": "A command-line tool for creating dampx-stack projects.",
   "main": "index.js",
   "type": "module",
   "scripts": {
