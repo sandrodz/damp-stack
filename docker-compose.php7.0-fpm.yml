@@ -1,0 +1,10 @@
+version: '2'
+services:
+  php7.0-fpm:
+    build: ./php/php7.0-fpm
+    restart: always
+    user: "www-data:www-data"
+    volumes:
+      - ./www:/www
+      - ./php/conf.d/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  php8.1-fpm-xdebug:
+    build: ./php/php8.1-fpm-xdebug
+    restart: always
+    user: "www-data:www-data"
+    volumes:
+      - ./www:/www
+      - ./php/conf.d/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+      - ./php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - /tmp/php8.1-fpm-xdebug/profiler:/tmp/xdebug-output

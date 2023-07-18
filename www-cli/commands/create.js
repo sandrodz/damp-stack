@@ -13,7 +13,7 @@ program.command('create')
   .description('Create project directory, nginx configuration files, and database')
   .argument('<string>', 'Project name')
   .option('--tld <string>', 'Top level domain', '.test')
-  .option('--php <version>', 'PHP version', /^(7.0|7.2|7.4|7.4-xdebug|8.1|8.1-xdebug)$/i, '8.1-xdebug')
+  .option('--php <version>', 'PHP version', /^(7.0-fpm|7.2-fpm|7.4-fpm|7.4-fpm-xdebug|8.1-fpm|8.1-fpm-xdebug)$/i, '8.1-fpm-xdebug')
   .option('--config <type>', 'Nginx config', /^(php|wp)$/i, 'wp')
   .option('--root <dir>', 'Project root', '/public')
   .action((name, options) => {
@@ -24,13 +24,18 @@ program.command('create')
     const projectDir = wwwDir+project;
     const virtualHostFile = virtualHostsDir+project+'.conf';
 
+    const isXdebug = options.php.includes('xdebug');
+
     // Config template.
     const virtualHostTemplate = `server {
     listen       80;
     server_name  ${project};
     root         /www/$host${options.root};
 
-    set $upstream php${options.php};
+${isXdebug ? '    fastcgi_read_timeout 1000;' : ''}
+
+    resolver 127.0.0.11;
+    set $upstream php${options.php}:9000;
     include /etc/nginx/nginx-${options.config}-common.conf;
 }
 `
