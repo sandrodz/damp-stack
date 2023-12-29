@@ -13,6 +13,7 @@ RUN { \
     echo 'access.format = "%f %{HTTP_X_REAL_IP}e - [%t] %m %s %{HTTP_USER_AGENT}e"'; \
 } > /usr/local/etc/php-fpm.d/error.conf
 # ioncube
+# intel https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
 RUN curl -o ioncube.tar.gz http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_aarch64.tar.gz && \
     tar -xvvzf ioncube.tar.gz && \
     mv ioncube/ioncube_loader_lin_8.1.so `php-config --extension-dir` && \
