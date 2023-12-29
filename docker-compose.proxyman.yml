@@ -1,0 +1,8 @@
+version: '2'
+services:
+  php8.1-fpm-xdebug:
+    environment:
+      HTTP_PROXY: host.docker.internal:9090
+      HTTPS_PROXY: host.docker.internal:9090
+      http_proxy: host.docker.internal:9090
+      https_proxy: host.docker.internal:9090
