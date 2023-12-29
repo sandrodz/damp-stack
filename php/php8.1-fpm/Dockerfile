@@ -24,4 +24,3 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN apk add --update --no-cache less # Fixes error with wp cli, less: unrecognized option: r.
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
