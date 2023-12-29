@@ -8,6 +8,4 @@ RUN unzip /wpcs.zip -d / && \
 
 WORKDIR /app
 
-CMD ["php"]
-CMD ["phpcbf"]
 CMD ["phpcs"]
